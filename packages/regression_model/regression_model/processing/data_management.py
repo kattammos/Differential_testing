@@ -3,12 +3,12 @@ import pandas as pd
 from sklearn.pipeline import Pipeline
 
 from regression_model import config
-from regression_model import _version_ as _version
+from regression_model import __version__ as _version
 
 import logging
 import typing as t
 
-logger = logging.getLogger(name_)
+_logger = logging.getLogger(name_)
 
 
 def load_dataset(*, file_name: str) -> pd.DataFrame:
@@ -47,7 +47,7 @@ def remove_old_pipelines(*, files_to_keep: t.List[str]) -> None:
     mapping between the package version and the model
     version to be imported and used by other applications.
     """
-    do_not_delete = files_to_keep + ["_init_.py"]
+    do_not_delete = files_to_keep + ["__init__.py"]
     for model_file in config.TRAINED_MODEL_DIR.iterdir():
         if model_file.name not in do_not_delete:
             model_file.unlink()
