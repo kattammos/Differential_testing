@@ -32,5 +32,5 @@ def run_training() -> None:
     save_pipeline(pipeline_to_persist=pipeline.price_pipe)
 
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     run_training()
