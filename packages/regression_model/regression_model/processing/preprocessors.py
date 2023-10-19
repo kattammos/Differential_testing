@@ -7,7 +7,7 @@ from regression_model.processing.errors import InvalidModelInputError
 
 class CategoricalImputer(BaseEstimator, TransformerMixin):
 
-    def _init_(self, variables=None) -> None:
+    def __init__(self, variables=None) -> None:
 
         if not isinstance(variables, list):
             self.variables = [variables]
@@ -31,7 +31,7 @@ class CategoricalImputer(BaseEstimator, TransformerMixin):
 class NumericalImputer(BaseEstimator, TransformerMixin):
     """Numerical missing value imputer."""
 
-    def _init_(self, variables=None):
+    def __init__(self, variables=None):
 
         if not isinstance(variables, list):
             self.variables = [variables]
@@ -58,7 +58,7 @@ class NumericalImputer(BaseEstimator, TransformerMixin):
 class TemporalVariableEstimator(BaseEstimator, TransformerMixin):
     """Temporal variable calculator."""
 
-    def _init_(self, variables=None, reference_variable=None):
+    def __init__(self, variables=None, reference_variable=None):
         if not isinstance(variables, list):
             self.variables = [variables]
         else:
@@ -81,7 +81,7 @@ class TemporalVariableEstimator(BaseEstimator, TransformerMixin):
 class RareLabelCategoricalEncoder(BaseEstimator, TransformerMixin):
     """Rare label categorical encoder"""
 
-    def _init_(self, tol=0.05, variables=None):
+    def __init__(self, tol=0.05, variables=None):
 
         self.tol = tol
         if not isinstance(variables, list):
@@ -116,7 +116,7 @@ class RareLabelCategoricalEncoder(BaseEstimator, TransformerMixin):
 class CategoricalEncoder(BaseEstimator, TransformerMixin):
     """String to numbers categorical encoder."""
 
-    def _init_(self, variables=None):
+    def __init__(self, variables=None):
         if not isinstance(variables, list):
             self.variables = [variables]
         else:
@@ -158,7 +158,7 @@ class CategoricalEncoder(BaseEstimator, TransformerMixin):
 
 
 class DropUnecessaryFeatures(BaseEstimator, TransformerMixin):
-    def _init_(self, variables_to_drop=None):
+    def __init__(self, variables_to_drop=None):
         self.variables = variables_to_drop
 
     def fit(self, X, y=None):

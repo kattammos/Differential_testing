@@ -5,7 +5,7 @@ from regression_model.processing.errors import InvalidModelInputError
 
 class LogTransformer(BaseEstimator, TransformerMixin):
 
-    def _init_(self, variables=None):
+    def __init__(self, variables=None):
         if not isinstance(variables, list):
             self.variables = [variables]
         else:
